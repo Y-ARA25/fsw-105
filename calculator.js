@@ -25,25 +25,23 @@ function myDivision(firstNum, secondNum){
     return firstNum / secondNum;
 }
 
-//result variable
-let myCalculator;
 
 //SWITCH STATMENT: My switch statement is going to cycle through each case until it matches with the userOperation input value
 //Then it should return the result of the corresponding function
-switch(myCalculator){
-    case userOperation == "add":
+switch(userOperation){
+    case "add":
     console.log("The sum of " + firstNum + " and " + secondNum + " is " + myAddition(firstNum, secondNum)); 
         break;
 
-    case userOperation == "sub":
+    case "sub":
     console.log("The difference of " + firstNum + " and " + secondNum + " is " + mySubtraction(firstNum, secondNum)); 
         break;
     
-    case userOperation == "div":
+    case "div":
     console.log("The result of dividing " + firstNum + " and " + secondNum + " is " + myDivision(firstNum, secondNum)); 
         break;
 
-    case userOperation == "mul":
+    case "mul":
     console.log("The result of multiplying " + firstNum + " and " + secondNum + " is " + myMultiplication(firstNum, secondNum)); 
         break;
     
