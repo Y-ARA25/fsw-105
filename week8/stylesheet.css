@@ -1,0 +1,34 @@
+.container {
+    display: grid;
+    grid-template: 150px / auto auto auto;
+    background-color: lightgrey;
+}
+
+.Title {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    width: 10em;
+    height: 2em;
+    border: 1px solid #c3c3c3;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 23px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: none;
+    background-color: lightpink;
+    padding: 2em;
+}
+
+.Name {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
