@@ -1,0 +1,71 @@
+const readlineSync = require('readline-sync');
+
+const name = readlineSync.question('What is your name? ');
+
+readlineSync.question('Hello ' + name + ', Welcome. You are now approaching an abandoned mining cave, enter if your dare... Press Enter to continue.');
+
+const caveCreatures = ['Demented Miner Spirit', 'Mutated Cave Bat', 'Cave Goblin', 'Wendigo'];
+const item = ['Extra Flashlight', 'Flare Gun', 'Medical Supplies', 'Knife'];
+var prize = [];
+let playerHealth = 25;
+const userOptions = ['Walk', 'Exit', 'Print'];
+let pickUp = item[Math.floor(Math.random() * item.length)];
+
+function game(){
+    const attackStrength = Math.floor(Math.random() * (7 - 4 + 2) + 4);
+    const opponent = caveCreatures[Math.floor(Math.random() * caveCreatures.length)];
+    let opponentsHealth = 20;
+    const opponentsPower = Math.floor(Math.random() * (8 - 4 + 1) + 4);
+
+    const index = readlineSync.keyInSelect(userOptions, 'How would you like to proceed?');
+
+    if(userOptions[index] == 'Exit') {
+        return playerHealth = 0;
+    } else if (userOptions[index] == 'Print'){
+        console.log(name + ': \n'+ playerHealth + '\nItem: ' + pickUp);
+    } else if (userOptions[index] === 'Walk'){
+        let key = Math.random();
+        if (key <= .3) {
+            console.log('Walking...');
+        } else if (key >= .3) {
+            console.log(opponent + ' has arrived!');
+        }
+
+            while(opponentsHealth > 0 && playerHealth > 0) {
+
+                const player = readlineSync.question("You're in a fight for your life, What are you going to do?! Press 'r' to runaway, or 'a' to attack! ");
+
+                switch(player){
+                    case 'r': //runaway
+                        const run = Math.random();
+                        if(run < .5){
+                            console.log('Before you are able to escape ' + opponent + ' attacks you with: ' + opponentsPower);
+                        }else {
+                            console.log("You've managed to escape!");
+                            break;
+                        }
+                        
+                    case 'a': //attack
+                        opponentsHealth -= attackStrength;
+                        console.log('You attacked ' + opponent + ' with ' + attackStrength + ' attack strength!');
+
+                        playerHealth -= opponentsPower;
+                        console.log('The opponent has just attacked you with: ' + opponentsPower + ' attack power!');
+
+                        if (opponentsHealth <= 0){
+                            console.log("You've defeated the " + opponent + ".\n" + opponent + " dropped: " + pickUp);
+                            let caveGoodie = Math.random();
+                            if (caveGoodie <= .3){
+                                prize.push(pickup);
+                            }
+                            }else if(playerHealth <= 0){
+                                console.log(opponent + ' has bested you, you are not fit for the caves... ')
+                        }
+                }
+            }
+    }   
+}
+
+while(playerHealth > 0){
+    game();
+}
